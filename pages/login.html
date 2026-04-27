@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minora | Login</title>
+    <link rel="stylesheet" href="../cssFile/globalStyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Top Promotion Bar -->
+    <div class="promo-bar">
+        Free shipping on all orders over $50. <a href="shop.html">Shop Now</a>
+    </div>
+
+    <!-- Navigation Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="nav-brand">
+                    <a href="../index.html">
+                        <img src="../sources/Minoralogo3 .png" alt="Minora Logo">
+                    </a>
+                </div>
+
+                <div class="nav-menu">
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="login.html" class="active">Login</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contactUs.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-icons">
+                    <a href="signup.html" class="nav-signup-btn">Sign Up</a>
+                    <a href="cart.html" class="relative">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span class="cart-badge">3</span>
+                    </a>
+                    <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Login Section -->
+    <section class="page-section" style="min-height: calc(100vh - 300px); display: flex; align-items: center; justify-content: center;">
+        <div style="width: 100%; max-width: 400px; margin: 0 auto; padding: 0 16px;">
+            <!-- Login Card -->
+            <div style="background: #ffffff; border-radius: 16px; border: 1px solid var(--border-primary-color); box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 40px 32px;">
+                
+                <!-- Header -->
+                <div style="text-align: center; margin-bottom: 32px;">
+                    <h1 style="font-size: 1.875rem; font-weight: 800; color: var(--brand-primary-color); margin: 0 0 8px 0;">Welcome Back</h1>
+                    <p style="color: var(--text-secondary-color); margin: 0; font-size: 0.875rem;">Sign in to your Minora account</p>
+                </div>
+
+                <!-- Login Form -->
+                <form style="display: flex; flex-direction: column; gap: 16px;">
+                    
+                    <!-- Email Field -->
+                    <div>
+                        <label style="display: block; font-weight: 600; color: var(--text-highlighted-color); margin-bottom: 8px; font-size: 0.875rem;">Email Address</label>
+                        <input type="email" placeholder="you@example.com" required style="width: 100%; padding: 12px 14px; border: 1px solid var(--border-primary-color); border-radius: 8px; font-family: inherit; font-size: 0.875rem; transition: var(--transition); background: var(--bg-card);" />
+                    </div>
+
+                    <!-- Password Field -->
+                    <div>
+                        <label style="display: block; font-weight: 600; color: var(--text-highlighted-color); margin-bottom: 8px; font-size: 0.875rem;">Password</label>
+                        <input type="password" placeholder="••••••••" required style="width: 100%; padding: 12px 14px; border: 1px solid var(--border-primary-color); border-radius: 8px; font-family: inherit; font-size: 0.875rem; transition: var(--transition); background: var(--bg-card);" />
+                    </div>
+
+                    <!-- Remember & Forgot -->
+                    <div style="display: flex; align-items: center; justify-content: space-between; font-size: 0.875rem;">
+                        <label style="display: flex; align-items: center; gap: 6px; cursor: pointer; color: var(--text-secondary-color);">
+                            <input type="checkbox" style="cursor: pointer;">
+                            Remember me
+                        </label>
+                        <a href="#" style="color: var(--brand-secondary-color); text-decoration: none; font-weight: 600;">Forgot password?</a>
+                    </div>
+
+                    <!-- Login Button -->
+                    <button type="submit" style="width: 100%; padding: 12px 16px; background-color: var(--brand-secondary-color); color: #fff; border: none; border-radius: 8px; font-weight: 700; font-size: 0.875rem; cursor: pointer; transition: var(--transition); margin-top: 8px;">Sign In</button>
+                </form>
+
+                <!-- Divider -->
+                <div style="display: flex; align-items: center; gap: 12px; margin: 24px 0; color: var(--text-muted-color); font-size: 0.875rem;">
+                    <span style="flex: 1; height: 1px; background: var(--border-primary-color);"></span>
+                    <span>Or</span>
+                    <span style="flex: 1; height: 1px; background: var(--border-primary-color);"></span>
+                </div>
+
+                <!-- Social Login -->
+                <div style="display: flex;gap: 12px; justify-content: space-between; margin-bottom: 24px;">
+                    <button type="button" class="explore-btn" style="width:50%;">
+                        <i class="fa-brands fa-google"></i>
+                        <span style="display: none;">Google</span>
+                    </button>
+                    <button type="button" class="explore-btn" style="width:50%;">
+                        <i class="fa-brands fa-facebook-f"></i>
+                        <span style="display: none;">Facebook</span>
+                    </button>
+                </div>
+
+                <!-- Sign Up Link -->
+                <div style="text-align: center; padding-top: 16px; border-top: 1px solid var(--border-secondary-color);">
+                    <p style="color: var(--text-secondary-color); font-size: 0.875rem; margin: 0;">Don't have an account? <a href="signup.html" style="color: var(--brand-secondary-color); font-weight: 700; text-decoration: none;">Create one</a></p>
+                </div>
+            </div>
+
+            <!-- Features Below Login -->
+            <div style="margin-top: 40px; display: flex; gap: 24px; text-align: center; justify-content: space-between; flex-wrap: nowrap;" class="features-row">
+                <div class="feature-item-box">
+                    <i class="fa-solid fa-truck-fast" style="font-size: 1.875rem; color: var(--brand-secondary-color); margin-bottom: 8px; display: block;"></i>
+                    <h4 style="margin: 0 0 4px 0; color: var(--text-primary-color); font-size: 0.875rem;">Fast Shipping</h4>
+                    <p style="margin: 0; color: var(--text-muted-color); font-size: 0.75rem;">Delivered quickly</p>
+                </div>
+                <div class="feature-item-box">
+                    <i class="fa-solid fa-shield" style="font-size: 1.875rem; color: var(--brand-secondary-color); margin-bottom: 8px; display: block;"></i>
+                    <h4 style="margin: 0 0 4px 0; color: var(--text-primary-color); font-size: 0.875rem;">Secure Payment</h4>
+                    <p style="margin: 0; color: var(--text-muted-color); font-size: 0.75rem;">100% Protected</p>
+                </div>
+                <div class="feature-item-box">
+                    <i class="fa-solid fa-headset" style="font-size: 1.875rem; color: var(--brand-secondary-color); margin-bottom: 8px; display: block;"></i>
+                    <h4 style="margin: 0 0 4px 0; color: var(--text-primary-color); font-size: 0.875rem;">24/7 Support</h4>
+                    <p style="margin: 0; color: var(--text-muted-color); font-size: 0.75rem;">Always here to help</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-card">
+                <div class="newsletter-text">
+                    <h2>Subscribe to our Newsletter</h2>
+                    <p style="color: var(--text-muted-color);">Get updates on new drops, exclusive offers, and VIP sales.</p>
+                </div>
+                <div class="newsletter-form-wrapper">
+                    <form class="newsletter-form">
+                        <i class="fa-regular fa-envelope"></i>
+                        <input type="email" placeholder="Enter your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" style="display: block; margin-bottom: 16px; height: 48px;">
+                        <img src="../sources/Minoralogo3 .png" alt="Minora" style="height: 48px; object-fit: contain;">
+                    </a>
+                    <p>Elevating everyday lifestyle with premium footwear, apparel, and accessories. Experience absolute comfort, anywhere.</p>
+                    <div class="footer-socials">
+                        <a href="#" class="footer-social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="footer-social-btn"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="footer-social-btn"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html"><i class="fa-solid fa-angle-right" style="font-size: 10px; margin-right: 8px;"></i>Home</a></li>
+                        <li><a href="shop.html"><i class="fa-solid fa-angle-right" style="font-size: 10px; margin-right: 8px;"></i>Shop All</a></li>
+                        <li><a href="about.html"><i class="fa-solid fa-angle-right" style="font-size: 10px; margin-right: 8px;"></i>About Us</a></li>
+                        <li><a href="login.html"><i class="fa-solid fa-angle-right" style="font-size: 10px; margin-right: 8px;"></i>Login</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Customer Care</h3>
+                    <ul>
+                        <li><a href="#"><i class="fa-solid fa-angle-right" style="font-size: 10px; margin-right: 8px;"></i>My Account</a></li>
+                        <li><a href="#"><i class="fa-solid fa-angle-right" style="font-size: 10px; margin-right: 8px;"></i>Order Tracking</a></li>
+                        <li><a href="#"><i class="fa-solid fa-angle-right" style="font-size: 10px; margin-right: 8px;"></i>Return Policy</a></li>
+                        <li><a href="#"><i class="fa-solid fa-angle-right" style="font-size: 10px; margin-right: 8px;"></i>FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Get in Touch</h3>
+                    <ul style="color: var(--text-secondary-color); font-size: 0.875rem;">
+                        <li style="margin-bottom: 16px; position: relative; padding-left: 24px;">
+                            <i class="fa-solid fa-location-dot" style="color: var(--brand-third-color); position: absolute; left: 0; top: 4px;"></i>
+                            123 Fashion Blvd, Suite 400<br>New York, NY 10012, USA
+                        </li>
+                        <li style="margin-bottom: 16px; position: relative; padding-left: 24px;">
+                            <i class="fa-solid fa-phone" style="color: var(--brand-third-color); position: absolute; left: 0; top: 4px;"></i>
+                            +1 (800) 123-4567
+                        </li>
+                        <li style="margin-bottom: 16px; position: relative; padding-left: 24px;">
+                            <i class="fa-solid fa-envelope" style="color: var(--brand-third-color); position: absolute; left: 0; top: 4px;"></i>
+                            support@minora.com
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p style="margin: 0;">&copy; 2026 Minora Store. All rights reserved.</p>
+                <div class="footer-payments">
+                    <i class="fa-brands fa-cc-visa"></i>
+                    <i class="fa-brands fa-cc-mastercard"></i>
+                    <i class="fa-brands fa-cc-paypal"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../jsFile/jsFunctions.js"></script>
+</body>
+</html>
