@@ -29,11 +29,13 @@
                         <li><a href="login.html">Login</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="contactUs.html" class="active">Contact Us</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
                     </ul>
                 </div>
 
                 <div class="nav-icons">
                     <a href="signup.html" class="nav-signup-btn">Sign Up</a>
+                    <button id="search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
                     <a href="cart.html" class="relative">
                         <i class="fa-solid fa-bag-shopping"></i>
                         <span class="cart-badge">3</span>
@@ -82,7 +84,7 @@
                         <textarea id="message" placeholder="How can we help you today?"></textarea>
                     </div>
 
-                    <button type="submit" class="link-button lg-button" style="width: 100%; margin-top: 8px;">Send Message</button>
+                    <button type="submit" id="contact-submit-btn" class="link-button lg-button">Send Message</button>
                 </form>
             </div>
         </div>
@@ -94,7 +96,7 @@
             <div class="newsletter-card">
                 <div class="newsletter-text">
                     <h2>Subscribe to our Newsletter</h2>
-                    <p style="color: var(--text-muted-color);">Get updates on new drops, exclusive offers, and VIP sales.</p>
+                    <p >Get updates on new drops, exclusive offers, and VIP sales.</p>
                 </div>
                 <div class="newsletter-form-wrapper">
                     <form class="newsletter-form">
@@ -112,8 +114,8 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <a href="#" style="display: block; margin-bottom: 16px; height: 48px;">
-                        <img src="../sources/Minoralogo3 .png" alt="Minora" style="height: 48px; object-fit: contain;">
+                    <a href="#" >
+                        <img src="../sources/Minoralogo3 .png" alt="Minora" >
                     </a>
                     <p>Elevating everyday lifestyle with premium footwear, apparel, and accessories. Experience absolute comfort, anywhere.</p>
                     <div class="footer-socials">
@@ -126,36 +128,36 @@
                 <div class="footer-col">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="../index.html"><i class="fa-solid fa-angle-right" style="font-size: 10px; margin-right: 8px;"></i>Home</a></li>
-                        <li><a href="shop.html"><i class="fa-solid fa-angle-right" style="font-size: 10px; margin-right: 8px;"></i>Shop All</a></li>
-                        <li><a href="about.html"><i class="fa-solid fa-angle-right" style="font-size: 10px; margin-right: 8px;"></i>About Us</a></li>
-                        <li><a href="login.html"><i class="fa-solid fa-angle-right" style="font-size: 10px; margin-right: 8px;"></i>Login</a></li>
+                        <li><a href="../index.html"><i class="fa-solid fa-angle-right" ></i>Home</a></li>
+                        <li><a href="shop.html"><i class="fa-solid fa-angle-right" ></i>Shop All</a></li>
+                        <li><a href="about.html"><i class="fa-solid fa-angle-right" ></i>About Us</a></li>
+                        <li><a href="login.html"><i class="fa-solid fa-angle-right" ></i>Login</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-col">
                     <h3>Customer Care</h3>
                     <ul>
-                        <li><a href="#"><i class="fa-solid fa-angle-right" style="font-size: 10px; margin-right: 8px;"></i>My Account</a></li>
-                        <li><a href="#"><i class="fa-solid fa-angle-right" style="font-size: 10px; margin-right: 8px;"></i>Order Tracking</a></li>
-                        <li><a href="#"><i class="fa-solid fa-angle-right" style="font-size: 10px; margin-right: 8px;"></i>Return Policy</a></li>
-                        <li><a href="#"><i class="fa-solid fa-angle-right" style="font-size: 10px; margin-right: 8px;"></i>FAQ</a></li>
+                        <li><a href="#"><i class="fa-solid fa-angle-right" ></i>My Account</a></li>
+                        <li><a href="#"><i class="fa-solid fa-angle-right" ></i>Order Tracking</a></li>
+                        <li><a href="#"><i class="fa-solid fa-angle-right" ></i>Return Policy</a></li>
+                        <li><a href="#"><i class="fa-solid fa-angle-right" ></i>FAQ</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-col">
                     <h3>Get in Touch</h3>
-                    <ul style="color: var(--text-secondary-color); font-size: 0.875rem;">
-                        <li style="margin-bottom: 16px; position: relative; padding-left: 24px;">
-                            <i class="fa-solid fa-location-dot" style="color: var(--brand-third-color); position: absolute; left: 0; top: 4px;"></i>
+                    <ul >
+                        <li >
+                            <i class="fa-solid fa-location-dot" ></i>
                             123 Fashion Blvd, Suite 400<br>New York, NY 10012, USA
                         </li>
-                        <li style="margin-bottom: 16px; position: relative; padding-left: 24px;">
-                            <i class="fa-solid fa-phone" style="color: var(--brand-third-color); position: absolute; left: 0; top: 4px;"></i>
+                        <li >
+                            <i class="fa-solid fa-phone" ></i>
                             +1 (800) 123-4567
                         </li>
-                        <li style="margin-bottom: 16px; position: relative; padding-left: 24px;">
-                            <i class="fa-solid fa-envelope" style="color: var(--brand-third-color); position: absolute; left: 0; top: 4px;"></i>
+                        <li >
+                            <i class="fa-solid fa-envelope" ></i>
                             support@minora.com
                         </li>
                     </ul>
@@ -163,7 +165,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p style="margin: 0;">&copy; 2026 Minora Store. All rights reserved.</p>
+                <p >&copy; 2026 Minora Store. All rights reserved.</p>
                 <div class="footer-payments">
                     <i class="fa-brands fa-cc-visa"></i>
                     <i class="fa-brands fa-cc-mastercard"></i>
@@ -172,6 +174,100 @@
             </div>
         </div>
     </footer>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="hidden">
+        <div id="search-modal" class="form-container">
+            <div class="flex justify-between items-center">
+                <h2>Search Products</h2>
+                <button id="search-close" aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="newsletter-form" id="search-keyword-wrap">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="search-keyword" placeholder="Search by name or keyword...">
+                <button type="button" id="search-submit-btn">Search</button>
+            </div>
+            <div class="hero-layout">
+                <div class="hero-content">
+                    <label>Category</label>
+                    <div class="select-container">
+                        <select id="filter-category">
+                            <option value="">All Categories</option>
+                            <option value="men">Men's Footwear</option>
+                            <option value="women">Women's Footwear</option>
+                            <option value="kids">Kids' Footwear</option>
+                            <option value="accessories">Accessories</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="hero-content">
+                    <label>Sort By</label>
+                    <div class="select-container">
+                        <select id="filter-sort">
+                            <option value="">Default</option>
+                            <option value="price-asc">Price: Low to High</option>
+                            <option value="price-desc">Price: High to Low</option>
+                            <option value="name-asc">Name: A to Z</option>
+                            <option value="name-desc">Name: Z to A</option>
+                            <option value="rating">Top Rated</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <label>Price Range</label>
+                <div class="hero-layout">
+                    <div class="hero-content">
+                        <input type="number" id="filter-price-min" placeholder="Min price e.g. 50">
+                    </div>
+                    <div class="hero-content">
+                        <input type="number" id="filter-price-max" placeholder="Max price e.g. 200">
+                    </div>
+                </div>
+            </div>
+            <div class="hero-layout">
+                <div class="hero-content">
+                    <label>Min Rating</label>
+                    <div class="select-container">
+                        <select id="filter-rating">
+                            <option value="">Any Rating</option>
+                            <option value="4">4 Stars &amp; Above</option>
+                            <option value="3">3 Stars &amp; Above</option>
+                            <option value="2">2 Stars &amp; Above</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="hero-content">
+                    <label>Product Tag</label>
+                    <div class="select-container">
+                        <select id="filter-tag">
+                            <option value="">All Tags</option>
+                            <option value="HOT">HOT</option>
+                            <option value="NEW">NEW</option>
+                            <option value="SALE">SALE</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-layout">
+                <div class="hero-content">
+                    <button class="primary-button" id="apply-filters-btn">
+                        <i class="fa-solid fa-filter"></i> Apply Filters
+                    </button>
+                </div>
+                <div class="hero-content">
+                    <button class="primary-button" id="reset-filters-btn">
+                        <i class="fa-solid fa-rotate-left"></i> Reset Filters
+                    </button>
+                </div>
+            </div>
+            <div id="search-results-area" class="hidden">
+                <h3>Search Results</h3>
+                <div id="search-results-count"></div>
+                <div id="search-results-list" class="card-container"></div>
+            </div>
+        </div>
+    </div>
 
     <script src="../jsFile/jsFunctions.js"></script>
 </body>

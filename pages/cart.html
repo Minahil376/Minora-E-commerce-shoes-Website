@@ -32,11 +32,13 @@
                         <li><a href="login.html">Login</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="contactUs.html">Contact Us</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
                     </ul>
                 </div>
 
                 <div class="nav-icons">
                     <a href="signup.html" class="nav-signup-btn">Sign Up</a>
+                    <button id="search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
                     <a href="cart.html" class="relative">
                         <i class="fa-solid fa-bag-shopping"></i>
                         <span class="cart-badge">0</span>
@@ -60,16 +62,16 @@
         <div class="container">
 
             <!-- Cart Table -->
-            <div style="overflow-x: auto; margin-bottom: 48px;">
-                <table id="cart-table" style="width: 100%; border-collapse: collapse; background: transparent; border-radius: var(--radius-lg); overflow: hidden;">
+            <div id="cart-page-table-wrapper">
+                <table id="cart-table" >
                     <thead>
-                        <tr style="border-bottom: 2px solid var(--border-primary-color);">
-                            <th style="padding: 18px 20px; text-align: left; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; color: #fff; text-transform: uppercase; width: 80px;">Remove</th>
-                            <th style="padding: 18px 20px; text-align: left; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; color: #fff; text-transform: uppercase; width: 110px;">Image</th>
-                            <th style="padding: 18px 20px; text-align: left; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; color: #fff; text-transform: uppercase;">Product</th>
-                            <th style="padding: 18px 20px; text-align: center; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; color: #fff; text-transform: uppercase; width: 120px;">Price</th>
-                            <th style="padding: 18px 20px; text-align: center; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; color: #fff; text-transform: uppercase; width: 150px;">Quantity</th>
-                            <th style="padding: 18px 20px; text-align: center; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; color: #fff; text-transform: uppercase; width: 120px;">Subtotal</th>
+                        <tr id="cart-table-header">
+                            <th >Remove</th>
+                            <th >Image</th>
+                            <th >Product</th>
+                            <th >Price</th>
+                            <th >Quantity</th>
+                            <th >Subtotal</th>
                         </tr>
                     </thead>
                     <tbody id="cart-items-container">
@@ -78,74 +80,74 @@
                 </table>
 
                 <!-- Empty Cart Message -->
-                <div id="empty-cart-message" style="text-align: center; padding: 64px 32px; display: none;">
-                    <i class="fa-solid fa-shopping-bag" style="font-size: 4rem; color: var(--text-muted-color); margin-bottom: 16px;"></i>
-                    <h3 style="color: var(--text-primary-color);">Your cart is empty</h3>
-                    <p style="color: var(--text-muted-color); margin-bottom: 24px;">Start shopping to add items to your cart</p>
+                <div id="empty-cart-message" >
+                    <i class="fa-solid fa-shopping-bag" ></i>
+                    <h3 >Your cart is empty</h3>
+                    <p >Start shopping to add items to your cart</p>
                     <a href="shop.html" class="link-button lg-button">Continue Shopping</a>
                 </div>
             </div>
 
             <!-- Bottom Row: Coupon + Continue Shopping + Order Summary -->
-            <div style="display: flex; gap: 32px; flex-wrap: wrap; justify-content: space-between; align-items: flex-start;">
+            <div id="cart-bottom-row">
 
                 <!-- Left: Continue Shopping + Apply Coupon -->
-                <div style="flex: 1; min-width: 280px; display: flex; flex-direction: column; gap: 24px;">
+                <div id="cart-left-col">
 
-                    <a href="shop.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: var(--bg-section); color: var(--text-highlighted-color); border: 1px solid var(--border-primary-color); border-radius: var(--radius-sm); font-weight: 600; text-decoration: none; transition: all var(--transition); width: fit-content;">
+                    <a href="shop.html" id="continue-shopping-btn">
                         <i class="fa-solid fa-arrow-left"></i> Continue Shopping
                     </a>
 
                     <!-- Apply Coupon -->
-                    <div style="background: var(--bg-card); border: 1px solid var(--border-primary-color); border-radius: var(--radius-lg); padding: 28px 32px;">
-                        <h3 style="margin: 0 0 20px 0; font-size: 1.25rem; font-weight: 800; color: var(--brand-secondary-color);">Apply Coupon</h3>
-                        <div style="display: flex; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-primary-color); background: var(--bg-section);">
+                    <div id="coupon-wrapper">
+                        <h3 >Apply Coupon</h3>
+                        <div id="coupon-input-group">
                             <input id="coupon-input" type="text" placeholder="Enter Your Coupon"
-                                   style="flex: 1; padding: 16px 20px; border: none; background: transparent; font-size: 0.95rem; color: var(--text-primary-color); outline: none;">
+                                   >
                             <button id="coupon-btn"
-                                    style="padding: 16px 28px; background: var(--brand-secondary-color); color: #fff; border: none; cursor: pointer; font-size: 1rem; font-weight: 700; transition: opacity 0.2s; white-space: nowrap;"
-                                    onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+                                    
+                                    >
                                 Apply
                             </button>
                         </div>
-                        <p id="coupon-msg" style="margin: 10px 0 0; font-size: 0.85rem; display: none;"></p>
+                        <p id="coupon-msg" ></p>
                     </div>
 
                 </div>
 
                 <!-- Order Summary -->
-                <div style="flex: 0 0 420px; min-width: 320px;" class="order-summary-wrapper">
-                    <div style="background: var(--bg-card); border: 1px solid var(--border-primary-color); border-radius: var(--radius-lg); padding: 32px;" class="order-summary-card">
-                        <h3 style="margin-top: 0; margin-bottom: 24px; font-size: 1.5rem; font-weight: 800; color: var(--brand-primary-color);" class="order-summary-title">Order Summary</h3>
+                <div  class="order-summary-wrapper">
+                    <div  class="order-summary-card">
+                        <h3  class="order-summary-title">Order Summary</h3>
 
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0; padding: 18px 0; border-bottom: 1px solid var(--border-secondary-color);" class="summary-row">
-                            <span style="color: var(--text-secondary-color); font-size: 1rem;">Subtotal</span>
-                            <span id="subtotal" style="font-weight: 700; font-size: 1rem; color: var(--text-primary-color);">$0.00</span>
+                        <div  class="summary-row">
+                            <span >Subtotal</span>
+                            <span id="subtotal" >$0.00</span>
                         </div>
 
-                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 0; border-bottom: 1px solid var(--border-secondary-color);" class="summary-row">
-                            <span style="color: var(--text-secondary-color); font-size: 1rem;">
-                                Shipping <span style="font-size: 0.85rem; color: var(--text-muted-color);">(Standard)</span>
+                        <div  class="summary-row">
+                            <span >
+                                Shipping <span >(Standard)</span>
                             </span>
-                            <span id="shipping" style="font-weight: 700; font-size: 1rem; color: var(--brand-third-color);">FREE</span>
+                            <span id="shipping" >FREE</span>
                         </div>
 
-                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 0; border-bottom: 1px solid var(--border-secondary-color);" class="summary-row">
-                            <span style="color: var(--text-secondary-color); font-size: 1rem;">Tax (10%)</span>
-                            <span id="tax" style="font-weight: 700; font-size: 1rem; color: var(--text-primary-color);">$0.00</span>
+                        <div  class="summary-row">
+                            <span >Tax (10%)</span>
+                            <span id="tax" >$0.00</span>
                         </div>
 
-                        <div id="discount-row" style="display: none; justify-content: space-between; align-items: center; padding: 18px 0; border-bottom: 1px solid var(--border-secondary-color);" class="summary-row">
-                            <span style="color: var(--text-secondary-color); font-size: 1rem;">Discount</span>
-                            <span id="discount-amount" style="font-weight: 700; font-size: 1rem; color: var(--brand-third-color);">-$0.00</span>
+                        <div id="discount-row"  class="summary-row">
+                            <span >Discount</span>
+                            <span id="discount-amount" >-$0.00</span>
                         </div>
 
-                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px 0 24px;" class="summary-total-row">
-                            <span style="font-size: 1.25rem; font-weight: 800; color: var(--brand-primary-color);">Total</span>
-                            <span id="total" style="font-size: 1.5rem; font-weight: 800; color: var(--brand-secondary-color);">$0.00</span>
+                        <div  class="summary-total-row">
+                            <span >Total</span>
+                            <span id="total" >$0.00</span>
                         </div>
 
-                        <button class="primary-button" style="margin-top: 0; width: 100%; padding: 16px; font-size: 1rem; font-weight: 700; border-radius: var(--radius-md);" id="checkout-btn">Proceed to Checkout</button>
+                        <button class="primary-button" id="checkout-btn" id="checkout-btn">Proceed to Checkout</button>
                     </div>
                 </div>
 
@@ -159,7 +161,7 @@
             <div class="newsletter-card">
                 <div class="newsletter-text">
                     <h2>Subscribe to our Newsletter</h2>
-                    <p style="color: var(--text-muted-color);">Get updates on new drops, exclusive offers, and VIP sales.</p>
+                    <p >Get updates on new drops, exclusive offers, and VIP sales.</p>
                 </div>
                 <div class="newsletter-form-wrapper">
                     <form class="newsletter-form">
@@ -177,8 +179,8 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <a href="#" style="display: block; margin-bottom: 16px; height: 48px;">
-                        <img src="../sources/Minoralogo3 .png" alt="Minora" style="height: 48px; object-fit: contain;">
+                    <a href="#" >
+                        <img src="../sources/Minoralogo3 .png" alt="Minora" >
                     </a>
                     <p>Elevating everyday lifestyle with premium footwear, apparel, and accessories. Experience absolute comfort, anywhere.</p>
                     <div class="footer-socials">
@@ -191,36 +193,36 @@
                 <div class="footer-col">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="../index.html"><i class="fa-solid fa-angle-right" style="font-size: 10px; margin-right: 8px;"></i>Home</a></li>
-                        <li><a href="shop.html"><i class="fa-solid fa-angle-right" style="font-size: 10px; margin-right: 8px;"></i>Shop All</a></li>
-                        <li><a href="about.html"><i class="fa-solid fa-angle-right" style="font-size: 10px; margin-right: 8px;"></i>About Us</a></li>
-                        <li><a href="login.html"><i class="fa-solid fa-angle-right" style="font-size: 10px; margin-right: 8px;"></i>Login</a></li>
+                        <li><a href="../index.html"><i class="fa-solid fa-angle-right" ></i>Home</a></li>
+                        <li><a href="shop.html"><i class="fa-solid fa-angle-right" ></i>Shop All</a></li>
+                        <li><a href="about.html"><i class="fa-solid fa-angle-right" ></i>About Us</a></li>
+                        <li><a href="login.html"><i class="fa-solid fa-angle-right" ></i>Login</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-col">
                     <h3>Customer Care</h3>
                     <ul>
-                        <li><a href="#"><i class="fa-solid fa-angle-right" style="font-size: 10px; margin-right: 8px;"></i>My Account</a></li>
-                        <li><a href="#"><i class="fa-solid fa-angle-right" style="font-size: 10px; margin-right: 8px;"></i>Order Tracking</a></li>
-                        <li><a href="#"><i class="fa-solid fa-angle-right" style="font-size: 10px; margin-right: 8px;"></i>Return Policy</a></li>
-                        <li><a href="#"><i class="fa-solid fa-angle-right" style="font-size: 10px; margin-right: 8px;"></i>FAQ</a></li>
+                        <li><a href="#"><i class="fa-solid fa-angle-right" ></i>My Account</a></li>
+                        <li><a href="#"><i class="fa-solid fa-angle-right" ></i>Order Tracking</a></li>
+                        <li><a href="#"><i class="fa-solid fa-angle-right" ></i>Return Policy</a></li>
+                        <li><a href="#"><i class="fa-solid fa-angle-right" ></i>FAQ</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-col">
                     <h3>Get in Touch</h3>
-                    <ul style="color: var(--text-secondary-color); font-size: 0.875rem;">
-                        <li style="margin-bottom: 16px; position: relative; padding-left: 24px;">
-                            <i class="fa-solid fa-location-dot" style="color: var(--brand-third-color); position: absolute; left: 0; top: 4px;"></i>
+                    <ul >
+                        <li >
+                            <i class="fa-solid fa-location-dot" ></i>
                             123 Fashion Blvd, Suite 400<br>New York, NY 10012, USA
                         </li>
-                        <li style="margin-bottom: 16px; position: relative; padding-left: 24px;">
-                            <i class="fa-solid fa-phone" style="color: var(--brand-third-color); position: absolute; left: 0; top: 4px;"></i>
+                        <li >
+                            <i class="fa-solid fa-phone" ></i>
                             +1 (800) 123-4567
                         </li>
-                        <li style="margin-bottom: 16px; position: relative; padding-left: 24px;">
-                            <i class="fa-solid fa-envelope" style="color: var(--brand-third-color); position: absolute; left: 0; top: 4px;"></i>
+                        <li >
+                            <i class="fa-solid fa-envelope" ></i>
                             support@minora.com
                         </li>
                     </ul>
@@ -228,7 +230,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p style="margin: 0;">&copy; 2026 Minora Store. All rights reserved.</p>
+                <p >&copy; 2026 Minora Store. All rights reserved.</p>
                 <div class="footer-payments">
                     <i class="fa-brands fa-cc-visa"></i>
                     <i class="fa-brands fa-cc-mastercard"></i>
@@ -237,6 +239,100 @@
             </div>
         </div>
     </footer>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="hidden">
+        <div id="search-modal" class="form-container">
+            <div class="flex justify-between items-center">
+                <h2>Search Products</h2>
+                <button id="search-close" aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="newsletter-form" id="search-keyword-wrap">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="search-keyword" placeholder="Search by name or keyword...">
+                <button type="button" id="search-submit-btn">Search</button>
+            </div>
+            <div class="hero-layout">
+                <div class="hero-content">
+                    <label>Category</label>
+                    <div class="select-container">
+                        <select id="filter-category">
+                            <option value="">All Categories</option>
+                            <option value="men">Men's Footwear</option>
+                            <option value="women">Women's Footwear</option>
+                            <option value="kids">Kids' Footwear</option>
+                            <option value="accessories">Accessories</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="hero-content">
+                    <label>Sort By</label>
+                    <div class="select-container">
+                        <select id="filter-sort">
+                            <option value="">Default</option>
+                            <option value="price-asc">Price: Low to High</option>
+                            <option value="price-desc">Price: High to Low</option>
+                            <option value="name-asc">Name: A to Z</option>
+                            <option value="name-desc">Name: Z to A</option>
+                            <option value="rating">Top Rated</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <label>Price Range</label>
+                <div class="hero-layout">
+                    <div class="hero-content">
+                        <input type="number" id="filter-price-min" placeholder="Min price e.g. 50">
+                    </div>
+                    <div class="hero-content">
+                        <input type="number" id="filter-price-max" placeholder="Max price e.g. 200">
+                    </div>
+                </div>
+            </div>
+            <div class="hero-layout">
+                <div class="hero-content">
+                    <label>Min Rating</label>
+                    <div class="select-container">
+                        <select id="filter-rating">
+                            <option value="">Any Rating</option>
+                            <option value="4">4 Stars &amp; Above</option>
+                            <option value="3">3 Stars &amp; Above</option>
+                            <option value="2">2 Stars &amp; Above</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="hero-content">
+                    <label>Product Tag</label>
+                    <div class="select-container">
+                        <select id="filter-tag">
+                            <option value="">All Tags</option>
+                            <option value="HOT">HOT</option>
+                            <option value="NEW">NEW</option>
+                            <option value="SALE">SALE</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-layout">
+                <div class="hero-content">
+                    <button class="primary-button" id="apply-filters-btn">
+                        <i class="fa-solid fa-filter"></i> Apply Filters
+                    </button>
+                </div>
+                <div class="hero-content">
+                    <button class="primary-button" id="reset-filters-btn">
+                        <i class="fa-solid fa-rotate-left"></i> Reset Filters
+                    </button>
+                </div>
+            </div>
+            <div id="search-results-area" class="hidden">
+                <h3>Search Results</h3>
+                <div id="search-results-count"></div>
+                <div id="search-results-list" class="card-container"></div>
+            </div>
+        </div>
+    </div>
 
     <script src="../jsFile/jsFunctions.js"></script>
 </body>

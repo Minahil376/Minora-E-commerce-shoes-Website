@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minora | Dashboard</title>
+    <link rel="stylesheet" href="../cssFile/globalStyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="promo-bar">
+        Free shipping on all orders over $50. <a href="shop.html">Shop Now</a>
+    </div>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="nav-brand">
+                    <a href="../index.html">
+                        <img src="../sources/Minoralogo3 .png" alt="Minora Logo">
+                    </a>
+                </div>
+                <div class="nav-menu">
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contactUs.html">Contact Us</a></li>
+                        <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                    </ul>
+                </div>
+                <div class="nav-icons">
+                    <a href="signup.html" class="nav-signup-btn">Sign Up</a>
+                    <button id="search-toggle" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <a href="cart.html" class="relative">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span class="cart-badge">0</span>
+                    </a>
+                    <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-section-alt text-center">
+        <div class="container">
+            <h1>Stock Dashboard</h1>
+            <p>Manage your inventory — view, insert, update and delete stock records.</p>
+        </div>
+    </section>
+
+    <!-- KPI Stats Row -->
+    <section class="page-section">
+        <div class="container">
+            <div class="features-row">
+                <div class="feature-item-box text-center">
+                    <div class="feature-icon justify-center">
+                        <i class="fa-solid fa-boxes-stacked"></i>
+                    </div>
+                    <h4>1,240</h4>
+                    <p>Total Items</p>
+                </div>
+                <div class="feature-item-box text-center">
+                    <div class="feature-icon justify-center">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <h4>980</h4>
+                    <p>In Stock</p>
+                </div>
+                <div class="feature-item-box text-center">
+                    <div class="feature-icon justify-center">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+                    <h4>48</h4>
+                    <p>Low Stock</p>
+                </div>
+                <div class="feature-item-box text-center">
+                    <div class="feature-icon justify-center">
+                        <i class="fa-solid fa-ban"></i>
+                    </div>
+                    <h4>12</h4>
+                    <p>Out of Stock</p>
+                </div>
+                <div class="feature-item-box text-center">
+                    <div class="feature-icon justify-center">
+                        <i class="fa-solid fa-dollar-sign"></i>
+                    </div>
+                    <h4>$84,320</h4>
+                    <p>Stock Value</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stock Action Cards -->
+    <section class="page-section">
+        <div class="container">
+            <div class="text-center">
+                <h2>Stock Management</h2>
+                <p>Perform all stock operations from one place.</p>
+            </div>
+            <div class="card-container">
+
+                <!-- View All Stock -->
+                <div class="card-wrapper">
+                    <div class="card">
+                        <div class="card-image-box">
+                            <i class="fa-solid fa-eye fa-3x"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">View All Stock</h3>
+                            <p class="card-desc">Browse the complete inventory list with filters and search.</p>
+                            <button class="primary-button" onclick="document.getElementById('stock-table-section').scrollIntoView({behavior:'smooth'})">
+                                <i class="fa-solid fa-eye"></i> View Stock
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Insert New Stock -->
+                <div class="card-wrapper">
+                    <div class="card">
+                        <div class="card-image-box">
+                            <i class="fa-solid fa-plus fa-3x"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Insert New Stock</h3>
+                            <p class="card-desc">Add a new product or restock an existing item to inventory.</p>
+                            <button class="primary-button" onclick="document.getElementById('insert-section').scrollIntoView({behavior:'smooth'})">
+                                <i class="fa-solid fa-plus"></i> Add Stock
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Update Stock -->
+                <div class="card-wrapper">
+                    <div class="card">
+                        <div class="card-image-box">
+                            <i class="fa-solid fa-pen-to-square fa-3x"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Update Stock</h3>
+                            <p class="card-desc">Edit product details, pricing, or quantity for existing items.</p>
+                            <button class="primary-button" onclick="document.getElementById('update-section').scrollIntoView({behavior:'smooth'})">
+                                <i class="fa-solid fa-pen-to-square"></i> Update Stock
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Delete Stock -->
+                <div class="card-wrapper">
+                    <div class="card">
+                        <div class="card-image-box">
+                            <i class="fa-solid fa-trash fa-3x"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Delete Stock</h3>
+                            <p class="card-desc">Remove discontinued or expired items from the inventory.</p>
+                            <button class="primary-button" onclick="document.getElementById('delete-section').scrollIntoView({behavior:'smooth'})">
+                                <i class="fa-solid fa-trash"></i> Delete Stock
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links Section -->
+    <section class="page-section">
+        <div class="container">
+            <div class="text-center">
+                <h2>Quick Links</h2>
+                <p>Jump to any section of the dashboard instantly.</p>
+            </div>
+            <div class="feature-box">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h4><a href="#charts-section">Sales Analytics</a></h4>
+                        <p>View graphical reports</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-table-list"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h4><a href="#stock-table-section">Stock Table</a></h4>
+                        <p>Full inventory records</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-file-export"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h4><a href="#">Export Report</a></h4>
+                        <p>Download CSV / PDF</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-bell"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h4><a href="#">Alerts</a></h4>
+                        <p>Low stock notifications</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-gear"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h4><a href="#">Settings</a></h4>
+                        <p>Configure dashboard</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Charts Section -->
+    <section class="page-section" id="charts-section">
+        <div class="container">
+            <div class="text-center">
+                <h2>Stock Analytics</h2>
+                <p>Graphical overview of your inventory and sales performance.</p>
+            </div>
+            <div class="hero-layout">
+                <!-- Bar Chart -->
+                <div class="hero-content">
+                    <h3>Monthly Stock Movement</h3>
+                    <p>Units added vs units sold per month.</p>
+                    <canvas id="barChart"></canvas>
+                </div>
+                <!-- Doughnut Chart -->
+                <div class="hero-image">
+                    <div>
+                        <h3>Stock by Category</h3>
+                        <p>Distribution across product categories.</p>
+                        <canvas id="doughnutChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Line Chart full width -->
+            <div class="newsletter-card">
+                <div class="newsletter-text">
+                    <h3>Revenue Trend</h3>
+                    <p>Monthly revenue generated from stock sales over the year.</p>
+                </div>
+                <div class="newsletter-form-wrapper">
+                    <span class="hero-badge">2026 Data</span>
+                </div>
+            </div>
+            <canvas id="lineChart"></canvas>
+        </div>
+    </section>
+
+    <!-- Stock Table Section -->
+    <section class="page-section" id="stock-table-section">
+        <div class="container">
+            <div class="text-center">
+                <h2>All Stock Records</h2>
+                <p>Complete inventory database with all product details.</p>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Product Name</th>
+                            <th>Category</th>
+                            <th>SKU</th>
+                            <th>Qty</th>
+                            <th>Price</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Premium Running Shoe</td>
+                            <td>Men's Footwear</td>
+                            <td>MF-001</td>
+                            <td>120</td>
+                            <td>$129.99</td>
+                            <td class="highlight-text font-extrabold">In Stock</td>
+                            <td>
+                                <button class="sm-button link-button"><i class="fa-solid fa-pen"></i></button>
+                                <button class="sm-button border-button"><i class="fa-solid fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Classic Comfort Sneaker</td>
+                            <td>Men's Footwear</td>
+                            <td>MF-002</td>
+                            <td>85</td>
+                            <td>$79.99</td>
+                            <td class="highlight-text font-extrabold">In Stock</td>
+                            <td>
+                                <button class="sm-button link-button"><i class="fa-solid fa-pen"></i></button>
+                                <button class="sm-button border-button"><i class="fa-solid fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Women's Open Toe Heels</td>
+                            <td>Women's Footwear</td>
+                            <td>WF-001</td>
+                            <td>8</td>
+                            <td>$124.99</td>
+                            <td>Low Stock</td>
+                            <td>
+                                <button class="sm-button link-button"><i class="fa-solid fa-pen"></i></button>
+                                <button class="sm-button border-button"><i class="fa-solid fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Sport Athletic Shoe</td>
+                            <td>Men's Footwear</td>
+                            <td>MF-003</td>
+                            <td>0</td>
+                            <td>$109.99</td>
+                            <td>Out of Stock</td>
+                            <td>
+                                <button class="sm-button link-button"><i class="fa-solid fa-pen"></i></button>
+                                <button class="sm-button border-button"><i class="fa-solid fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Women's Classic Party Heels</td>
+                            <td>Women's Footwear</td>
+                            <td>WF-002</td>
+                            <td>67</td>
+                            <td>$99.99</td>
+                            <td class="highlight-text font-extrabold">In Stock</td>
+                            <td>
+                                <button class="sm-button link-button"><i class="fa-solid fa-pen"></i></button>
+                                <button class="sm-button border-button"><i class="fa-solid fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Outdoor Adventure Boot</td>
+                            <td>Men's Footwear</td>
+                            <td>MF-008</td>
+                            <td>45</td>
+                            <td>$149.99</td>
+                            <td class="highlight-text font-extrabold">In Stock</td>
+                            <td>
+                                <button class="sm-button link-button"><i class="fa-solid fa-pen"></i></button>
+                                <button class="sm-button border-button"><i class="fa-solid fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insert New Stock Section -->
+    <section class="page-section" id="insert-section">
+        <div class="container">
+            <div class="text-center">
+                <h2>Insert New Stock</h2>
+                <p>Add a new product to the inventory database.</p>
+            </div>
+            <div class="form-container">
+                <form>
+                    <div>
+                        <label>Product Name</label>
+                        <input type="text" placeholder="e.g. Premium Running Shoe">
+                    </div>
+                    <div>
+                        <label>Category</label>
+                        <div class="select-container">
+                            <select>
+                                <option>Men's Footwear</option>
+                                <option>Women's Footwear</option>
+                                <option>Kids' Footwear</option>
+                                <option>Accessories</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label>SKU</label>
+                        <input type="text" placeholder="e.g. MF-001">
+                    </div>
+                    <div>
+                        <label>Quantity</label>
+                        <input type="number" placeholder="e.g. 100">
+                    </div>
+                    <div>
+                        <label>Price ($)</label>
+                        <input type="number" placeholder="e.g. 129.99">
+                    </div>
+                    <div>
+                        <label>Description</label>
+                        <textarea placeholder="Brief product description..."></textarea>
+                    </div>
+                    <button type="submit" class="primary-button">
+                        <i class="fa-solid fa-plus"></i> Insert Stock
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Update Stock Section -->
+    <section class="page-section" id="update-section">
+        <div class="container">
+            <div class="text-center">
+                <h2>Update Stock</h2>
+                <p>Search for a product by SKU or name and update its details.</p>
+            </div>
+            <div class="form-container">
+                <form>
+                    <div>
+                        <label>Search by SKU or Product Name</label>
+                        <input type="text" placeholder="e.g. MF-001 or Premium Running Shoe">
+                    </div>
+                    <div>
+                        <label>New Quantity</label>
+                        <input type="number" placeholder="Enter updated quantity">
+                    </div>
+                    <div>
+                        <label>New Price ($)</label>
+                        <input type="number" placeholder="Enter updated price">
+                    </div>
+                    <div>
+                        <label>Stock Status</label>
+                        <div class="select-container">
+                            <select>
+                                <option>In Stock</option>
+                                <option>Low Stock</option>
+                                <option>Out of Stock</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="primary-button">
+                        <i class="fa-solid fa-pen-to-square"></i> Update Stock
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Delete Stock Section -->
+    <section class="page-section" id="delete-section">
+        <div class="container">
+            <div class="text-center">
+                <h2>Delete Stock</h2>
+                <p>Remove a product from the inventory. This action cannot be undone.</p>
+            </div>
+            <div class="form-container">
+                <form>
+                    <div>
+                        <label>Search by SKU or Product Name</label>
+                        <input type="text" placeholder="e.g. MF-001 or Premium Running Shoe">
+                    </div>
+                    <div>
+                        <label>Confirm Product Name</label>
+                        <input type="text" placeholder="Re-enter product name to confirm">
+                    </div>
+                    <button type="submit" class="primary-button">
+                        <i class="fa-solid fa-trash"></i> Delete Stock
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promo Banner -->
+    <section class="promo-banner">
+        <div class="container">
+            <h2>Keep Your Inventory Updated</h2>
+            <p>Regular stock audits help prevent overselling and improve customer satisfaction.</p>
+            <a href="#stock-table-section" class="link-button lg-button">Go to Stock Table</a>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-card">
+                <div class="newsletter-text">
+                    <h2>Subscribe to our Newsletter</h2>
+                    <p>Get updates on new drops, exclusive offers, and VIP sales.</p>
+                </div>
+                <div class="newsletter-form-wrapper">
+                    <form class="newsletter-form">
+                        <i class="fa-regular fa-envelope"></i>
+                        <input type="email" placeholder="Enter your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="block">
+                        <img src="../sources/Minoralogo3 .png" alt="Minora">
+                    </a>
+                    <p>Elevating everyday lifestyle with premium footwear, apparel, and accessories. Experience absolute comfort, anywhere.</p>
+                    <div class="footer-socials">
+                        <a href="#" class="footer-social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="footer-social-btn"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="footer-social-btn"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html"><i class="fa-solid fa-angle-right"></i>Home</a></li>
+                        <li><a href="shop.html"><i class="fa-solid fa-angle-right"></i>Shop All</a></li>
+                        <li><a href="about.html"><i class="fa-solid fa-angle-right"></i>About Us</a></li>
+                        <li><a href="login.html"><i class="fa-solid fa-angle-right"></i>Login</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Dashboard</h3>
+                    <ul>
+                        <li><a href="#stock-table-section"><i class="fa-solid fa-angle-right"></i>View Stock</a></li>
+                        <li><a href="#insert-section"><i class="fa-solid fa-angle-right"></i>Insert Stock</a></li>
+                        <li><a href="#update-section"><i class="fa-solid fa-angle-right"></i>Update Stock</a></li>
+                        <li><a href="#delete-section"><i class="fa-solid fa-angle-right"></i>Delete Stock</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Get in Touch</h3>
+                    <ul>
+                        <li>
+                            <i class="fa-solid fa-location-dot"></i>
+                            123 Fashion Blvd, Suite 400<br>New York, NY 10012, USA
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+                            +1 (800) 123-4567
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-envelope"></i>
+                            support@minora.com
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Minora Store. All rights reserved.</p>
+                <div class="footer-payments">
+                    <i class="fa-brands fa-cc-visa"></i>
+                    <i class="fa-brands fa-cc-mastercard"></i>
+                    <i class="fa-brands fa-cc-paypal"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="hidden">
+        <div id="search-modal" class="form-container">
+            <div class="flex justify-between items-center">
+                <h2>Search Products</h2>
+                <button id="search-close" aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="newsletter-form" id="search-keyword-wrap">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="search-keyword" placeholder="Search by name or keyword...">
+                <button type="button" id="search-submit-btn">Search</button>
+            </div>
+            <div class="hero-layout">
+                <div class="hero-content">
+                    <label>Category</label>
+                    <div class="select-container">
+                        <select id="filter-category">
+                            <option value="">All Categories</option>
+                            <option value="men">Men's Footwear</option>
+                            <option value="women">Women's Footwear</option>
+                            <option value="kids">Kids' Footwear</option>
+                            <option value="accessories">Accessories</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="hero-content">
+                    <label>Sort By</label>
+                    <div class="select-container">
+                        <select id="filter-sort">
+                            <option value="">Default</option>
+                            <option value="price-asc">Price: Low to High</option>
+                            <option value="price-desc">Price: High to Low</option>
+                            <option value="name-asc">Name: A to Z</option>
+                            <option value="name-desc">Name: Z to A</option>
+                            <option value="rating">Top Rated</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <label>Price Range</label>
+                <div class="hero-layout">
+                    <div class="hero-content">
+                        <input type="number" id="filter-price-min" placeholder="Min price e.g. 50">
+                    </div>
+                    <div class="hero-content">
+                        <input type="number" id="filter-price-max" placeholder="Max price e.g. 200">
+                    </div>
+                </div>
+            </div>
+            <div class="hero-layout">
+                <div class="hero-content">
+                    <label>Min Rating</label>
+                    <div class="select-container">
+                        <select id="filter-rating">
+                            <option value="">Any Rating</option>
+                            <option value="4">4 Stars &amp; Above</option>
+                            <option value="3">3 Stars &amp; Above</option>
+                            <option value="2">2 Stars &amp; Above</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="hero-content">
+                    <label>Product Tag</label>
+                    <div class="select-container">
+                        <select id="filter-tag">
+                            <option value="">All Tags</option>
+                            <option value="HOT">HOT</option>
+                            <option value="NEW">NEW</option>
+                            <option value="SALE">SALE</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-layout">
+                <div class="hero-content">
+                    <button class="primary-button" id="apply-filters-btn">
+                        <i class="fa-solid fa-filter"></i> Apply Filters
+                    </button>
+                </div>
+                <div class="hero-content">
+                    <button class="primary-button" id="reset-filters-btn">
+                        <i class="fa-solid fa-rotate-left"></i> Reset Filters
+                    </button>
+                </div>
+            </div>
+            <div id="search-results-area" class="hidden">
+                <h3>Search Results</h3>
+                <div id="search-results-count"></div>
+                <div id="search-results-list" class="card-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../jsFile/jsFunctions.js"></script>
+    <script>
+        // Bar Chart - Monthly Stock Movement
+        const barCtx = document.getElementById('barChart').getContext('2d');
+        new Chart(barCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [
+                    {
+                        label: 'Stock Added',
+                        data: [200, 180, 220, 260, 300, 280, 310, 290, 340, 320, 380, 400],
+                        backgroundColor: '#2B3467'
+                    },
+                    {
+                        label: 'Stock Sold',
+                        data: [150, 160, 190, 230, 270, 250, 280, 260, 300, 290, 350, 370],
+                        backgroundColor: '#e11d48'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { position: 'top' } },
+                scales: { y: { beginAtZero: true } }
+            }
+        });
+
+        // Doughnut Chart - Stock by Category
+        const doughnutCtx = document.getElementById('doughnutChart').getContext('2d');
+        new Chart(doughnutCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ["Men's Footwear", "Women's Footwear", "Kids'", "Accessories"],
+                datasets: [{
+                    data: [45, 30, 15, 10],
+                    backgroundColor: ['#2B3467', '#e11d48', '#f43f5e', '#fecdd3']
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { position: 'bottom' } }
+            }
+        });
+
+        // Line Chart - Revenue Trend
+        const lineCtx = document.getElementById('lineChart').getContext('2d');
+        new Chart(lineCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: 'Revenue ($)',
+                    data: [12000, 14500, 13800, 17200, 19500, 18300, 21000, 20400, 23500, 22800, 26000, 28500],
+                    borderColor: '#2B3467',
+                    backgroundColor: 'rgba(43,52,103,0.1)',
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { position: 'top' } },
+                scales: { y: { beginAtZero: false } }
+            }
+        });
+    </script>
+</body>
+</html>

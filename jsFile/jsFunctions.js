@@ -379,3 +379,180 @@ function showCouponMsg(el, text, color) {
     el.style.color = color;
     el.style.display = 'block';
 }
+
+
+// =========================================================
+// SEARCH OVERLAY
+// =========================================================
+
+// Product catalogue — single source of truth for search
+var PRODUCTS = [
+    { id:1,  title:'Premium Running Shoe',          category:'men',   price:129.99, rating:4.5, tag:'HOT',  image:'Men/shoe1.png' },
+    { id:2,  title:'Classic Comfort Sneaker',        category:'men',   price:79.99,  rating:4.5, tag:'-20%', image:'Men/shoe2.png' },
+    { id:3,  title:'Sport Athletic Shoe',            category:'men',   price:109.99, rating:5,   tag:'NEW',  image:'Men/shoe3.png' },
+    { id:4,  title:'Urban Lifestyle Shoe',           category:'men',   price:99.99,  rating:4.5, tag:'SALE', image:'Men/shoe4.png' },
+    { id:5,  title:'Professional Training Shoe',     category:'men',   price:119.99, rating:4.5, tag:'-25%', image:'Men/shoe5.png' },
+    { id:6,  title:'Elite Performance Shoe',         category:'men',   price:139.99, rating:5,   tag:'HOT',  image:'Men/shoe6.png' },
+    { id:7,  title:'Casual Everyday Shoe',           category:'men',   price:89.99,  rating:4.5, tag:'NEW',  image:'Men/shoe7.png' },
+    { id:8,  title:'Outdoor Adventure Boot',         category:'men',   price:149.99, rating:5,   tag:'SALE', image:'Men/shoe8.png' },
+    { id:9,  title:"Men's Classic Comfort Shoe",     category:'men',   price:125.99, rating:5,   tag:'-15%', image:'Men/shoe9.png' },
+    { id:10, title:"Men's Everyday Formal Shoe",     category:'men',   price:159.99, rating:4.5, tag:'NEW',  image:'Men/shoe10.png' },
+    { id:11, title:"Men's Soft Sole Lace Shoe",      category:'men',   price:119.99, rating:5,   tag:'HOT',  image:'Men/shoe11.png' },
+    { id:12, title:"Men's Lightweight Office Shoe",  category:'men',   price:89.99,  rating:4.5, tag:'-30%', image:'Men/shoe12.png' },
+    { id:13, title:"Men's Casual Walk Shoe",         category:'men',   price:59.99,  rating:5,   tag:'NEW',  image:'Men/shoe13.png' },
+    { id:14, title:"Men's Soft Sole Casual",         category:'men',   price:85.99,  rating:4.5, tag:'SALE', image:'Men/shoe14.png' },
+    { id:15, title:"Women's Open Toe Heels",         category:'women', price:124.99, rating:5,   tag:'-20%', image:'Women/Wshoe1.png' },
+    { id:16, title:"Women's Classic Party Heels",    category:'women', price:99.99,  rating:4.5, tag:'HOT',  image:'Women/Wshoe2.png' },
+    { id:17, title:"Women's Strappy Sandals",        category:'women', price:89.99,  rating:5,   tag:'NEW',  image:'Women/Wshoe3.png' },
+    { id:18, title:"Women's Block Heel Pumps",       category:'women', price:114.99, rating:4.5, tag:'SALE', image:'Women/Wshoe4.png' },
+    { id:19, title:"Women's Casual Flats",           category:'women', price:69.99,  rating:5,   tag:'-15%', image:'Women/Wshoe5.png' },
+    { id:20, title:"Women's Ankle Boots",            category:'women', price:134.99, rating:4.5, tag:'HOT',  image:'Women/Wshoe6.png' },
+    { id:21, title:"Women's Wedge Sneakers",         category:'women', price:94.99,  rating:5,   tag:'NEW',  image:'Women/Wshoe7.png' },
+    { id:22, title:"Women's Slip-On Loafers",        category:'women', price:79.99,  rating:4.5, tag:'SALE', image:'Women/Wshoe8.png' },
+    { id:23, title:"Women's Platform Heels",         category:'women', price:119.99, rating:5,   tag:'-25%', image:'Women/Wshoe9.png' },
+    { id:24, title:"Women's Running Trainers",       category:'women', price:109.99, rating:4.5, tag:'HOT',  image:'Women/Wshoe10.png' },
+    { id:25, title:"Women's Ballet Flats",           category:'women', price:64.99,  rating:5,   tag:'NEW',  image:'Women/Wshoe11.png' }
+];
+
+// Detect image path prefix based on current page location
+function getImgPrefix() {
+    var path = window.location.pathname;
+    return path.includes('/pages/') ? '../sources/' : 'sources/';
+}
+
+// Detect shop page link prefix
+function getShopPrefix() {
+    var path = window.location.pathname;
+    return path.includes('/pages/') ? 'shop.html' : 'pages/shop.html';
+}
+
+function runSearch() {
+    var keyword  = (document.getElementById('search-keyword')  || {value:''}).value.trim().toLowerCase();
+    var category = (document.getElementById('filter-category') || {value:''}).value;
+    var minPrice = parseFloat((document.getElementById('filter-price-min') || {value:''}).value) || 0;
+    var maxPrice = parseFloat((document.getElementById('filter-price-max') || {value:''}).value) || Infinity;
+    var minRating= parseFloat((document.getElementById('filter-rating')    || {value:''}).value) || 0;
+    var tag      = (document.getElementById('filter-tag')      || {value:''}).value;
+    var sort     = (document.getElementById('filter-sort')     || {value:''}).value;
+
+    var results = PRODUCTS.filter(function(p) {
+        var matchKeyword  = !keyword  || p.title.toLowerCase().includes(keyword);
+        var matchCategory = !category || p.category === category;
+        var matchPrice    = p.price >= minPrice && p.price <= maxPrice;
+        var matchRating   = p.rating >= minRating;
+        var matchTag      = !tag || p.tag === tag;
+        return matchKeyword && matchCategory && matchPrice && matchRating && matchTag;
+    });
+
+    // Sort
+    if (sort === 'price-asc')  results.sort(function(a,b){ return a.price - b.price; });
+    if (sort === 'price-desc') results.sort(function(a,b){ return b.price - a.price; });
+    if (sort === 'name-asc')   results.sort(function(a,b){ return a.title.localeCompare(b.title); });
+    if (sort === 'name-desc')  results.sort(function(a,b){ return b.title.localeCompare(a.title); });
+    if (sort === 'rating')     results.sort(function(a,b){ return b.rating - a.rating; });
+
+    var area  = document.getElementById('search-results-area');
+    var count = document.getElementById('search-results-count');
+    var list  = document.getElementById('search-results-list');
+    if (!area || !count || !list) return;
+
+    area.classList.remove('hidden');
+    count.innerHTML = '<p><strong>' + results.length + '</strong> product(s) found.</p>';
+
+    if (results.length === 0) {
+        list.innerHTML = '<p class="table-empty">No products match your search. Try different filters.</p>';
+        return;
+    }
+
+    var prefix = getImgPrefix();
+    list.innerHTML = results.map(function(p) {
+        return '<div class="card-wrapper">' +
+            '<div class="card">' +
+                '<div class="card-image-box">' +
+                    '<span class="card-badge">' + p.tag + '</span>' +
+                    '<img src="' + prefix + p.image + '" alt="' + p.title + '">' +
+                '</div>' +
+                '<div class="card-content">' +
+                    '<h3 class="card-title">' + p.title + '</h3>' +
+                    '<div class="card-meta">' +
+                        '<p class="card-desc">' + (p.category === 'men' ? "Men's" : p.category === 'women' ? "Women's" : p.category) + ' Footwear</p>' +
+                        '<span class="card-price">$' + p.price.toFixed(2) + '</span>' +
+                    '</div>' +
+                    '<button class="primary-button" data-action="add-to-cart" ' +
+                        'data-id="' + p.id + '" data-title="' + p.title + '" ' +
+                        'data-price="' + p.price + '" data-image="' + p.image + '">' +
+                        '<i class="fa-solid fa-cart-plus"></i> Add to Cart' +
+                    '</button>' +
+                '</div>' +
+            '</div>' +
+        '</div>';
+    }).join('');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    var overlay     = document.getElementById('search-overlay');
+    var toggleBtn   = document.getElementById('search-toggle');
+    var closeBtn    = document.getElementById('search-close');
+    var submitBtn   = document.getElementById('search-submit-btn');
+    var applyBtn    = document.getElementById('apply-filters-btn');
+    var resetBtn    = document.getElementById('reset-filters-btn');
+    var keywordInput= document.getElementById('search-keyword');
+
+    if (!overlay || !toggleBtn) return;
+
+    // Open
+    toggleBtn.addEventListener('click', function() {
+        overlay.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        if (keywordInput) keywordInput.focus();
+    });
+
+    // Close via X button
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+            overlay.classList.add('hidden');
+            document.body.style.overflow = '';
+        });
+    }
+
+    // Close by clicking backdrop
+    overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) {
+            overlay.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+    });
+
+    // Close with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && !overlay.classList.contains('hidden')) {
+            overlay.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+    });
+
+    // Search on button click
+    if (submitBtn) submitBtn.addEventListener('click', runSearch);
+    if (applyBtn)  applyBtn.addEventListener('click', runSearch);
+
+    // Search on Enter key in keyword input
+    if (keywordInput) {
+        keywordInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') runSearch();
+        });
+    }
+
+    // Reset filters
+    if (resetBtn) {
+        resetBtn.addEventListener('click', function() {
+            ['search-keyword','filter-category','filter-sort',
+             'filter-price-min','filter-price-max','filter-rating','filter-tag']
+            .forEach(function(id) {
+                var el = document.getElementById(id);
+                if (el) el.value = '';
+            });
+            var area = document.getElementById('search-results-area');
+            if (area) area.classList.add('hidden');
+        });
+    }
+});
