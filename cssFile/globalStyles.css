@@ -1141,6 +1141,15 @@ footer h2 {
     color: #fff;
 }
 
+#auth-social-btns {
+    gap: 16px;
+}
+
+#auth-social-btns > button {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
 /* =========================================================
    NEWSLETTER SYSTEM
 ========================================================= */
@@ -2073,3 +2082,4 @@ td[data-status="open"] {
     from { opacity: 0; transform: translateY(-20px); }
     to   { opacity: 1; transform: translateY(0); }
 }
+
